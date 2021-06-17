@@ -1,0 +1,57 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>{{ dialogBaslik }}</span>
+</mat-toolbar>
+
+<form [formGroup]="frm">
+  <mat-form-field appearance="outline">
+    <mat-label>Ad</mat-label>
+    <input
+      [value]="kayit.ad"
+      matInput
+      placeholder="Ad"
+      formControlName="ad"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Soyad</mat-label>
+    <input
+      [value]="kayit.soyad"
+      matInput
+      placeholder="Soyad"
+      formControlName="soyad"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>E-mail</mat-label>
+    <input
+      [value]="kayit.email"
+      matInput
+      placeholder="E-mail"
+      formControlName="email"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Rol</mat-label>
+    <input
+      [value]="kayit.rol"
+      matInput
+      placeholder="Rol"
+      formControlName="rol"
+      required
+    />
+  </mat-form-field>
+</form>
+<button
+  mat-raised-button
+  color="primary"
+  [disabled]="frm.invalid"
+  (click)="dialogRef.close(frm.value)"
+>
+  Kaydet</button
+>&nbsp;
+<button mat-raised-button color="warn" (click)="dialogRef.close()">
+  İptal
+</button>

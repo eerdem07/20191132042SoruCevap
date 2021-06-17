@@ -1,0 +1,22 @@
+<mat-card class="example-card" style="margin: 50px 200px">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Soru Başlık: {{ soru.baslik }}</mat-card-title>
+    <mat-card-subtitle>
+      Soru Sahibi: {{ soru?.uye?.ad }} {{ soru?.uye?.soyad }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div [innerHtml]="soru.icerik"></div>
+  </mat-card-content>
+</mat-card>
+
+<hr />
+
+<h2 style="text-align: center"><b>Cevaplar</b></h2>
+
+<mat-card *ngFor="let cevap of soru?.cevaplar">
+  <mat-card-content>
+    <div [innerHtml]="cevap.icerik"></div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,94 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="mat-elevation-z8" style="background-color: #7556af"
+      >Kategoriler
+    </mat-toolbar>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        [routerLink]="['/kategori', kat.katId]"
+        *ngFor="let kat of kategoriler"
+        >{{ kat.katAdi }}</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar
+      color="basic"
+      style="background-color: #7556af"
+      class="mat-elevation-z8"
+    >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span [routerLink]="['/']">Tatlı Sözlük</span>
+      <span class="spacer"></span>
+
+      <span class="spacer"></span>
+
+      <button
+        mat-button
+        [routerLink]="['/kayit-ol']"
+        *ngIf="!apiServis.oturumKontrol()"
+      >
+        Kayıt Ol
+      </button>
+      <button
+        mat-button
+        [routerLink]="['/login']"
+        *ngIf="!apiServis.oturumKontrol()"
+      >
+        Giriş Yap
+      </button>
+      <button
+        mat-button
+        [routerLink]="['/uye']"
+        *ngIf="apiServis.oturumKontrol()"
+        [routerLink]="['/profil', uid]"
+      >
+        {{ kadi }}
+      </button>
+
+      <button
+        mat-button
+        [matMenuTriggerFor]="menu"
+        *ngIf="apiServis.yetkiKontrol(['Admin'])"
+      >
+        <mat-icon>admin_panel_settings</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/admin/uye']">Üyeler</button>
+        <button mat-menu-item [routerLink]="['/admin/soru']">Sorular</button>
+        <button mat-menu-item [routerLink]="['/admin/kategori']">
+          Kategoriler
+        </button>
+      </mat-menu>
+      <button
+        mat-button
+        (click)="OturumKapat()"
+        *ngIf="apiServis.oturumKontrol()"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet>
+      <button mat-fab (click)="SoruEkle()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

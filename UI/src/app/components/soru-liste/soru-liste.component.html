@@ -1,0 +1,7 @@
+<mat-grid-list cols="8">
+  <ng-container *ngFor="let soru of sorular">
+    <mat-grid-tile>
+      <app-soru [soru]="soru"> </app-soru>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>

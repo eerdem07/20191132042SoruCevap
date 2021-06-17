@@ -1,0 +1,23 @@
+<div>
+  <mat-card class="example-card" style="background-color: antiquewhite">
+    <mat-card-header>
+      <mat-card-title>{{ soru.baslik }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div [innerHTML]="soru.icerik"></div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="cevapla()" style="background-color: #198754">
+        Cevapla
+      </button>
+      <button
+        mat-button
+        (click)="detayaGit(soru.Id)"
+        style="background-color: #0d6efd"
+      >
+        Detay
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

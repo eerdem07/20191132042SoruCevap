@@ -1,0 +1,35 @@
+<mat-card-title>Profili Güncelle</mat-card-title>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="frm">
+      <mat-form-field appearance="outline">
+        <mat-label>Ad</mat-label>
+        <input matInput [value]="guncelUye.ad" formControlName="ad" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Soyad</mat-label>
+        <input
+          matInput
+          [value]="guncelUye.soyad"
+          formControlName="soyad"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>E-Posta</mat-label>
+        <input
+          matInput
+          [value]="guncelUye.email"
+          formControlName="eposta"
+          required
+        />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="ProfiliGuncelle()">
+      Kaydet
+    </button>
+    <br />
+  </mat-card-content>
+</mat-card>

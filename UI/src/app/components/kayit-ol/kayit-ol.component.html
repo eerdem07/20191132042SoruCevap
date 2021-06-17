@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Kayıt Ol</h2>
+  <form [formGroup]="frm">
+    <mat-form-field appearance="outline" style="width: 50%">
+      <mat-label>Ad</mat-label>
+      <input matInput placeholder="Ad" type="text" formControlName="ad" />
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field appearance="outline" style="width: 50%">
+      <mat-label>Soyad</mat-label>
+      <input matInput placeholder="Soyad" type="text" formControlName="soyad" />
+    </mat-form-field>
+    &nbsp;
+
+    <mat-form-field appearance="outline" style="width: 50%">
+      <mat-label>E-Posta</mat-label>
+      <input
+        matInput
+        placeholder="E-Posta"
+        type="text"
+        formControlName="eposta"
+      />
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field appearance="outline" style="width: 50%">
+      <mat-label>Parola</mat-label>
+      <input
+        matInput
+        placeholder="Parola"
+        type="password"
+        formControlName="sifre"
+      />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="KayitOl()">
+    Kayıt Ol
+  </button>
+</div>

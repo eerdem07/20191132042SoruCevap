@@ -1,0 +1,60 @@
+<button
+  mat-raised-button
+  color="primary"
+  style="margin-left: 50px"
+  [routerLink]="['/profil-guncelle']"
+>
+  Profili Düzenle
+</button>
+
+<mat-grid-list cols="1" rowHeight="390px">
+  <mat-grid-tile>
+    <mat-card style="margin: 50px 150px; align-items: center">
+      <mat-card-title> Ad & Soyad: {{ uye.ad }} </mat-card-title>
+      <hr />
+      <mat-card-title> Mail: {{ uye.email }} </mat-card-title>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<hr />
+<h2 style="text-align: center"><b>Sorularım</b></h2>
+<app-soru-liste [sorular]="sorular" style="margin-top: 50px"></app-soru-liste>
+
+<!-- <mat-card-title>Profili Güncelle</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="frm">
+          <mat-form-field appearance="outline">
+            <mat-label>Ad</mat-label>
+            <input
+              matInput
+              [value]="guncelUye.ad"
+              formControlName="ad"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Soyad</mat-label>
+            <input
+              matInput
+              [value]="guncelUye.soyad"
+              formControlName="soyad"
+              required
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>E-Posta</mat-label>
+            <input
+              matInput
+              [value]="guncelUye.email"
+              formControlName="eposta"
+              required
+            />
+          </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" (click)="ProfiliGuncelle()">
+          Kaydet
+        </button>
+        <br />
+      </mat-card-content> -->
